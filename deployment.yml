@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rohit
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rohit
+  template:
+    metadata:
+      labels:
+        app: rohit
+    spec:
+      containers:
+      - name: cont1
+        image: suneel09/medical
+
+        ports:
+        - containerPort: 80   # Use port 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rohit-service
+spec:
+  selector:
+    app: rohit
+  ports:
+  - protocol: TCP
+    port: 80                 # Expose port 80
+    targetPort: 80
+  type: LoadBalancer
