@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: cont1
-        image: suneel09/medical
+        image: rohitmourya01/doc-pro-movie
 
         ports:
         - containerPort: 80   # Use port 3000
